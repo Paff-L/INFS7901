@@ -1,0 +1,32 @@
+-- queries in the Query Demonstration
+-- 
+-- a. Join query
+SELECT c.CustomerID, c.FirstName, c.LastName, v.VipType, v.Discounts
+FROM `Customer` c
+Join VIP v USING (VipID)
+ORDER BY c.CustomerID
+
+-- b. Aggregation query
+SELECT SUM(Amounts) as sales
+FROM `Orders` 
+WHERE 1
+
+-- c. Aggregation with group by
+SELECT OrderType, sum(amounts) as sales
+FROM `Orders` 
+GROUP BY OrderType
+
+-- d. Delete operation with Cascade
+DELETE FROM `Orders` 
+WHERE OrderID = 1
+
+-- e. Update operation
+-- selection query
+SELECT CustomerID, FirstName, LastName, Phone
+FROM `Customer` 
+WHERE CustomerID = 1
+
+-- Update query
+UPDATE `Customer`
+SET Phone = "(04) 1198 7456"
+WHERE CustomerID = 1
